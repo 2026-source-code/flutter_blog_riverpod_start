@@ -52,6 +52,7 @@ class PostListVM extends Notifier<PostListModel?> {
       refreshCtrl.loadComplete();
     } else {
       refreshCtrl.refreshCompleted();
+      refreshCtrl.resetNoData();
     }
 
     state = newModel;
@@ -59,10 +60,13 @@ class PostListVM extends Notifier<PostListModel?> {
   }
 
   Future<void> nextList() async {
+    Logger().d(state!.pageNumber);
+    Logger().d(state!.isLast);
     if (state == null || state!.isLast) {
       refreshCtrl.loadNoData();
       return;
     }
+
     await init(page: state!.pageNumber + 1);
   }
 }
