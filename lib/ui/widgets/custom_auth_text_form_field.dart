@@ -11,7 +11,7 @@ class CustomAuthTextFormField extends StatelessWidget {
     Key? key,
     required this.text,
     this.obscureText = false,
-    required this.funValidator,
+    this.funValidator,
     required this.controller,
   }) : super(key: key);
 
@@ -24,7 +24,7 @@ class CustomAuthTextFormField extends StatelessWidget {
         const SizedBox(height: smallGap),
         TextFormField(
           controller: controller,
-          validator: funValidator,
+          // validator: funValidator,
           obscureText: obscureText,
           decoration: InputDecoration(
             hintText: "Enter $text",
